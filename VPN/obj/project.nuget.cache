@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kwanwVhhkzN4DAa1l+J3T3vDgE3z6bnkqiUXVCJBTE5ZmPmMxtEWJSX1+OwyR1fY4Ic2HcTJ5kMjbgV5iNgRrA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Joel.Herfindal\\Documents\\NTI_ÅK3\\PROG\\VP-master\\VP-master\\VPN\\VPN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Joel.Herfindal\\.nuget\\packages\\raylib-cs\\3.7.0.1\\raylib-cs.3.7.0.1.nupkg.sha512",
+    "C:\\Users\\Joel.Herfindal\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
