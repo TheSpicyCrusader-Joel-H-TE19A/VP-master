@@ -19,34 +19,39 @@ namespace VPN
             //row 1
 
 
-            string[] level = {"*                   ",
-                              "xxxxxxxxxxxxxxxxxxx ",
-                              "*x   x            x ",
-                              " x x x x   xxxxxx x ",
-                              " x x x x   x   x  x ",
-                              "   x   x   x*x    x ",
-                              "xxxxxxxx   xxxxxx x ",
-                              "*x   x   x        x ",
-                              " x x x x xxxxxxxxxx ",
-                              "   x   x            "};
+            // string[] level = {"*                   ",
+            //                   "xxxxxxxxxxxxxxxxxxx ",
+            //                   "*x   x            x ",
+            //                   " x x x x   xxxxxx x ",
+            //                   " x x x x   x   x  x ",
+            //                   "   x   x   x*x    x ",
+            //                   "xxxxxxxx   xxxxxx x ",
+            //                   "*x   x   x        x ",
+            //                   " x x x x xxxxxxxxxx ",
+            //                   "   x   x            "};
 
-            for (int y = 0; y < level.Length; y++)
-            {
-                for (int x = 0; x < level[y].Length; x++)
-                {
-                    char item = level[y][x];
+            // for (int y = 0; y < level.Length; y++)
+            // {
+            //     for (int x = 0; x < level[y].Length; x++)
+            //     {
+            //         char item = level[y][x];
 
-                    if (item == 'x')
-                    {
-                        blocks.Add(new Enemy(10 + 90 * x, 10 + 90 * y));
-                    }
+            //         if (item == 'x')
+            //         {
+            //             blocks.Add(new Enemy(10 + 90 * x, 10 + 90 * y));
+            //         }
 
-                    if (item == '*')
-                    {
-                        blocks.Add(new Homebase(10 + 90 * x, 10 + 90 * y));
-                    }
-                }
-            }
+            //         if (item == '*')
+            //         {
+            //             blocks.Add(new Homebase(10 + 90 * x, 10 + 90 * y));
+            //         }
+            //     }
+            // }
+
+            Level level1 = new Level("level1.txt");
+            Level level2 = new Level("level2.txt");
+
+            Level currentLevel = level1;
 
             //Variabler
             string scene = "Menu";
@@ -82,8 +87,12 @@ namespace VPN
 
                 if (scene == "Arena")
                 {
-                    scene = ArenaUpdate(playerIsAlive, scene, p, blocks);
-
+                    scene = currentLevel.Update(playerIsAlive, scene, p);
+                    if (scene == "2")
+                    {
+                        currentLevel = level2;
+                        scene = "Arena";
+                    }
                 }
                 else if (scene == "Deadscreen")
                 {
@@ -115,6 +124,7 @@ namespace VPN
                         e.Draw();
                     }
                 }
+
 
                 if (scene == "Victory")
                 {
@@ -209,38 +219,6 @@ namespace VPN
             Raylib.DrawText("- Good luck :)", 50, 350, 40, Color.BLACK);
         }
 
-        static string ArenaUpdate(bool playerIsAlive, string scene, Player p, List<Block> blocks)
-        {
-            playerIsAlive = true;
-            Raylib.ClearBackground(Color.BLUE);
-            //commands
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_Q))
-            {
-                return "Deadscreen";
-            }
-
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_E))
-            {
-                return "Victory";
-            }
-
-            //collision 
-            foreach (Block e in blocks)
-            {
-                if (Raylib.CheckCollisionRecs(p.rect, e.rect))
-                {
-                    if (e is Enemy)
-                    {
-                        return "Deadscreen";
-                    }
-                    if (e is Homebase)
-                    {
-                        return "Victory";
-                    }
-                }
-            }
-            return "Arena";
-        }
 
         static string VictoryUpdate(Rectangle buttonMenu, Rectangle buttonRetry, String scene, Player p)
         {
