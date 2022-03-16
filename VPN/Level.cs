@@ -15,7 +15,7 @@ namespace VPN
         //                       "*x   x            x ",
         //                       " x x x x   xxxxxx x ",
         //                       " x x x x   x   x  x ",
-        //                       "   x   x   x*x    x ",
+        //                       "   x   x  *x*x    x ",
         //                       "xxxxxxxx   xxxxxx x ",
         //                       "*x   x   x        x ",
         //                       " x x x x xxxxxxxxxx ",
@@ -43,7 +43,15 @@ namespace VPN
             }
         }
 
-        public string Update(bool playerIsAlive, string scene, Player p)
+        public void Draw()
+        {
+            foreach (Block e in blocks)
+            {
+                e.Draw();
+            }
+        }
+
+        public string Update(bool playerIsAlive, string scene, Player p, Level currentLevel, Level level3)
         {
             playerIsAlive = true;
             Raylib.ClearBackground(Color.BLUE);
@@ -69,9 +77,12 @@ namespace VPN
                     }
                     if (e is Homebase)
                     {
-                        return "2";
+                        return "next";
                     }
-                    
+                    // else if (e is Homebase && currentLevel == level3)
+                    // {
+                    //     return "Victory";
+                    // }
                 }
             }
             return "Arena";

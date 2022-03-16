@@ -14,8 +14,8 @@ namespace VPN
 
             //Alla fiender
 
-            List<Block> blocks = new List<Block>();
-            List<Homebase> homebases = new List<Homebase>();
+            // List<Block> blocks = new List<Block>();
+            // List<Homebase> homebases = new List<Homebase>();
             //row 1
 
 
@@ -50,6 +50,8 @@ namespace VPN
 
             Level level1 = new Level("level1.txt");
             Level level2 = new Level("level2.txt");
+            Level level3 = new Level("level3.txt");
+            Level level4 = new Level("level4.txt");
 
             Level currentLevel = level1;
 
@@ -87,11 +89,25 @@ namespace VPN
 
                 if (scene == "Arena")
                 {
-                    scene = currentLevel.Update(playerIsAlive, scene, p);
-                    if (scene == "2")
+                    scene = currentLevel.Update(playerIsAlive, scene, p, currentLevel, level3);
+                    if (scene == "next")
                     {
-                        currentLevel = level2;
+                        if (currentLevel == level1) currentLevel = level2;
+                        else if (currentLevel == level2) 
+                        {
+                            currentLevel = level3;
+                        }
+                        else if (currentLevel == level3) 
+                        {
+                            currentLevel = level4;
+                        }
                         scene = "Arena";
+                        if(currentLevel == level4)
+                        {
+                            Console.WriteLine("Hello");
+                            scene = "Victory";
+                        }
+                        p.Reset();
                     }
                 }
                 else if (scene == "Deadscreen")
@@ -118,12 +134,9 @@ namespace VPN
 
                         p.PlayerDraw();
                     }
-
-                    foreach (Block e in blocks)
-                    {
-                        e.Draw();
-                    }
+                    currentLevel.Draw();
                 }
+
 
 
                 if (scene == "Victory")
