@@ -93,16 +93,16 @@ namespace VPN
                     if (scene == "next")
                     {
                         if (currentLevel == level1) currentLevel = level2;
-                        else if (currentLevel == level2) 
+                        else if (currentLevel == level2)
                         {
                             currentLevel = level3;
                         }
-                        else if (currentLevel == level3) 
+                        else if (currentLevel == level3)
                         {
                             currentLevel = level4;
                         }
                         scene = "Arena";
-                        if(currentLevel == level4)
+                        if (currentLevel == level4)
                         {
                             Console.WriteLine("Hello");
                             scene = "Victory";
@@ -117,6 +117,11 @@ namespace VPN
                 else if (scene == "Victory")
                 {
                     scene = VictoryUpdate(buttonMenu, buttonRetry, scene, p);
+                }
+                if (scene == "Retry")
+                {
+                    currentLevel = level1;
+                    scene = "Arena";
                 }
 
                 Raylib.BeginDrawing();
@@ -213,7 +218,7 @@ namespace VPN
         {
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
             {
-                return "Arena";
+                return "Retry";
             }
 
             return "Intro";
@@ -243,7 +248,7 @@ namespace VPN
             if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), buttonRetry) && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
             {
                 p.Reset();
-                return "Arena";
+                return "Retry";
             }
             return "Victory";
         }
@@ -299,7 +304,7 @@ namespace VPN
             if (Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), buttonRetry) && Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
             {
                 p.Reset();
-                return "Arena";
+                return "Retry";
             }
             return "Deadscreen";
         }
@@ -344,6 +349,7 @@ namespace VPN
                 Raylib.DrawText("U", 1060, 575, 50, Color.WHITE);
             }
         }
+
 
     }
 }

@@ -8,6 +8,7 @@ namespace VPN
 {
     public class Level
     {
+        string name;
         List<Block> blocks = new List<Block>();
         List<Homebase> homebases = new List<Homebase>();
         // string[] level = {"*                   ",
@@ -22,6 +23,7 @@ namespace VPN
         //                       "   x   x            "};
         public Level(string fileName)
         {
+            name = fileName;
             string[] level = File.ReadAllLines(fileName);
 
             for (int y = 0; y < level.Length; y++)
@@ -51,7 +53,7 @@ namespace VPN
             }
         }
 
-        public string Update(bool playerIsAlive, string scene, Player p, Level currentLevel, Level level3)
+        public string Update(bool playerIsAlive, string scene, Player p, Level currentLevel, Level level1)
         {
             playerIsAlive = true;
             Raylib.ClearBackground(Color.BLUE);
@@ -87,6 +89,7 @@ namespace VPN
             }
             return "Arena";
         }
+
 
 
 
