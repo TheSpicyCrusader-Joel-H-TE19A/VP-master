@@ -1,10 +1,10 @@
 * x     *xxx   x   x
 x x xxxxx    x   x  
   x  xx   xxxxxxx x*
- xx xxx           xx
- xx  xxx     x xxxxx
-  x   x       x     
-x xxx   xxxxx   xxxx 
-x x* xxx     x x       
+ xxx xx   x*       x
+ xx  xxxx xxxxxxxx x
+  x x   x     x     
+x x   x   xxx   xxxx 
+x xxxxxxxx   x x       
 x xxxxxxxxxxx   xxxx
-x             x     
+x             x    *

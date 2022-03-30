@@ -12,42 +12,6 @@ namespace VPN
             Raylib.InitWindow(1800, 910, "Brandons adventure");
             Raylib.SetTargetFPS(420);
 
-            //Alla fiender
-
-            // List<Block> blocks = new List<Block>();
-            // List<Homebase> homebases = new List<Homebase>();
-            //row 1
-
-
-            // string[] level = {"*                   ",
-            //                   "xxxxxxxxxxxxxxxxxxx ",
-            //                   "*x   x            x ",
-            //                   " x x x x   xxxxxx x ",
-            //                   " x x x x   x   x  x ",
-            //                   "   x   x   x*x    x ",
-            //                   "xxxxxxxx   xxxxxx x ",
-            //                   "*x   x   x        x ",
-            //                   " x x x x xxxxxxxxxx ",
-            //                   "   x   x            "};
-
-            // for (int y = 0; y < level.Length; y++)
-            // {
-            //     for (int x = 0; x < level[y].Length; x++)
-            //     {
-            //         char item = level[y][x];
-
-            //         if (item == 'x')
-            //         {
-            //             blocks.Add(new Enemy(10 + 90 * x, 10 + 90 * y));
-            //         }
-
-            //         if (item == '*')
-            //         {
-            //             blocks.Add(new Homebase(10 + 90 * x, 10 + 90 * y));
-            //         }
-            //     }
-            // }
-
             Level level1 = new Level("level1.txt");
             Level level2 = new Level("level2.txt");
             Level level3 = new Level("level3.txt");
