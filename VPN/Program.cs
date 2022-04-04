@@ -96,7 +96,7 @@ namespace VPN
 
                 if (scene == "Arena")
                 {
-                    Raylib.ClearBackground(Color.BLUE);
+                    Raylib.ClearBackground(Color.BLUE); //currentBGColor;
                     if (playerIsAlive == true)
                     {
                         p.PlayerUpdate();
