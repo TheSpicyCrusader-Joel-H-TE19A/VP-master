@@ -11,16 +11,7 @@ namespace VPN
         string name;
         List<Block> blocks = new List<Block>();
         List<Homebase> homebases = new List<Homebase>();
-        // string[] level = {"*                   ",
-        //                       "xxxxxxxxxxxxxxxxxxx ",
-        //                       "*x   x            x ",
-        //                       " x x x x   xxxxxx x ",
-        //                       " x x x x   x   x  x ",
-        //                       "   x   x  *x*x    x ",
-        //                       "xxxxxxxx   xxxxxx x ",
-        //                       "*x   x   x        x ",
-        //                       " x x x x xxxxxxxxxx ",
-        //                       "   x   x            "};
+
         public Level(string fileName)
         {
             name = fileName;
@@ -81,10 +72,6 @@ namespace VPN
                     {
                         return "next";
                     }
-                    // else if (e is Homebase && currentLevel == level3)
-                    // {
-                    //     return "Victory";
-                    // }
                 }
             }
             return "Arena";
