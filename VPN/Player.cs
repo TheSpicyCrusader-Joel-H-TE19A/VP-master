@@ -7,12 +7,8 @@ namespace VPN
 {
     public class Player
     {
-        public int playerHP = 100;
-        public int playerDMG = 5;
 
-        public int playerProjectileSpeed = 3;
-
-        public int playerSpeed = 1;
+        public int playerSpeed = 275;
 
         public Vector2 movement = new Vector2();
 
@@ -33,7 +29,7 @@ namespace VPN
         {
             rect = new Rectangle(Raylib.GetScreenWidth() / 2 - 78, Raylib.GetScreenHeight() / 2 - 80, 78, 80); //positionen som resettar till startpositionen
             currentState = PlayerDown; //fungerar som idle/startpositions state
-            playerSpeed = 1;
+            playerSpeed = 275;
         }
 
         public void PlayerUpdate()
@@ -43,22 +39,22 @@ namespace VPN
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_D) && rect.x < Raylib.GetScreenWidth() - 78)
             {
-                movement.X = playerSpeed;
+                movement.X = playerSpeed * Raylib.GetFrameTime();
                 currentState = PlayerRight;
             }
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_A) && rect.x > 0)
             {
-                movement.X = -playerSpeed;
+                movement.X = -playerSpeed * Raylib.GetFrameTime();
                 currentState = PlayerLeft;
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_S) && rect.y < Raylib.GetScreenHeight() - 80)
             {
-                movement.Y = playerSpeed;
+                movement.Y = playerSpeed * Raylib.GetFrameTime();
                 currentState = PlayerDown;
             }
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && rect.y > 0)
             {
-                movement.Y = -playerSpeed;
+                movement.Y = -playerSpeed * Raylib.GetFrameTime();
                 currentState = PlayerUp;
             }
 

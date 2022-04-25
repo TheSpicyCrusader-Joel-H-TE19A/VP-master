@@ -10,7 +10,7 @@ namespace VPN
         static void Main(string[] args)
         {
             Raylib.InitWindow(1800, 910, "Brandons adventure");
-            Raylib.SetTargetFPS(420);
+            Raylib.SetTargetFPS(60);
 
             Level level1 = new Level("level1.txt");
             Level level2 = new Level("level2.txt");
